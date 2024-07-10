@@ -57,7 +57,6 @@ export default function TextGeneration() {
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       const result = await model.generateContentStream([
-        prompt,
         ...chats.map((chat) => chat.content),
       ]);
 
