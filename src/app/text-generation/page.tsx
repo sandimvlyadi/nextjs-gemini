@@ -39,7 +39,11 @@ export default function TextGeneration() {
   const genAI = new GoogleGenerativeAI(
     process.env.NEXT_PUBLIC_GEMINI_API_KEY || ""
   );
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    systemInstruction:
+      "Anda adalah model yang menggunakan bahasa Indonesia untuk berinteraksi",
+  });
   const [chat, setChat] = useState(model.startChat({ history: [] }));
 
   useEffect(() => {
